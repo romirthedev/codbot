@@ -2,6 +2,62 @@
 
 A zero-cost tool that brings context from your team's Slack, Discord, and Notion directly into Claude Code. When you're coding, Claude Code automatically has access to relevant messages, discussions, and documentation your team has already written.
 
+---
+
+## 🚀 Ultra-Simple Setup (No Technical Knowledge Required)
+
+**What you need:** Just Python (which you probably have). That's it.
+
+### Copy & Paste These Commands
+
+Open your terminal and run these 4 commands (one at a time):
+
+```bash
+# 1. Download the project
+git clone https://github.com/romirthedev/codbot.git && cd codbot
+
+# 2. Install everything needed
+pip install -r requirements.txt
+
+# 3. [Edit config.yaml] - Add your Slack/Discord/Notion tokens (see instructions below)
+
+# 4. Start it up
+python setup.py
+```
+
+That's it! Then open http://localhost:8000 in your browser.
+
+### Getting Your Tokens (Copy & Paste URLs)
+
+**Slack?** Go here: https://api.slack.com/apps → Create App → Copy bot token → Paste in config.yaml
+
+**Discord?** Go here: https://discord.com/developers/applications → New App → Copy token → Paste in config.yaml
+
+**Notion?** Go here: https://www.notion.so/my-integrations → New Integration → Copy token → Paste in config.yaml
+
+### Edit config.yaml
+
+Open `config.yaml` in any text editor and add your tokens:
+
+```yaml
+slack:
+  enabled: true
+  bot_token: "PASTE_YOUR_TOKEN_HERE"
+  channels: ["#general", "#engineering"]
+```
+
+**That's all you need to do.** No coding, no technical stuff.
+
+### Next Steps
+
+- Run `python setup.py` (waits ~30 seconds, then done)
+- Visit http://localhost:8000 and watch it work
+- Follow MCP_SETUP.md to connect with Claude Code
+
+**Questions?** Every single token URL is in the guide above. Just click them.
+
+---
+
 ## Architecture
 
 The system has three main components:
