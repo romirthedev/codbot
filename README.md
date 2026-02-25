@@ -29,11 +29,38 @@ That's it! Then open http://localhost:8000 in your browser.
 
 ### Getting Your Tokens (Copy & Paste URLs)
 
-**Slack?** Go here: https://api.slack.com/apps → Create App → Copy bot token → Paste in config.yaml
+#### **Slack** - 3 Click Steps
 
-**Discord?** Go here: https://discord.com/developers/applications → New App → Copy token → Paste in config.yaml
+1. Go to: https://api.slack.com/apps → **Create New App** → **From scratch**
+2. Name it anything (e.g., "Team Context") → Pick your workspace → Create
+3. On the left sidebar, click **OAuth & Permissions**
+4. Under **Scopes**, add these 3:
+   - `channels:history` (read messages)
+   - `users:read` (read user info)
+   - `groups:history` (read private channels)
+5. Click **Reinstall to Workspace** at the top
+6. Under **Bot User OAuth Token**, copy the token (starts with `xoxb-`)
+7. Paste into `config.yaml` under `slack.bot_token`
 
-**Notion?** Go here: https://www.notion.so/my-integrations → New Integration → Copy token → Paste in config.yaml
+#### **Discord** - 3 Click Steps
+
+1. Go to: https://discord.com/developers/applications → **New Application**
+2. Name it anything → Create
+3. Click **Bot** on the left → **Add Bot**
+4. Under **TOKEN**, click **Copy** (starts with `Mzk...`)
+5. Paste into `config.yaml` under `discord.bot_token`
+6. Scroll down to **Privileged Gateway Intents** and turn ON:
+   - Message Content Intent
+   - Server Members Intent
+7. Add your bot to your Discord server
+
+#### **Notion** - 3 Click Steps
+
+1. Go to: https://www.notion.so/my-integrations → **New Integration**
+2. Name it "Team Context" → Create
+3. Under **Internal Integration Token**, click **Show** → **Copy**
+4. Paste into `config.yaml` under `notion.api_key`
+5. Go to each Notion page → **Share** → Search for your integration name → Add it
 
 ### Edit config.yaml
 
@@ -302,19 +329,27 @@ Tests cover:
 
 ## Troubleshooting
 
-### "Module not found" errors
-Make sure you're running from the project root and have installed dependencies:
-```bash
-pip install -r requirements.txt
-```
+### "I don't see the Bot User OAuth Token on the page"
 
-### Slack token not working
-1. Go to https://api.slack.com/apps and create an app
-2. Under "OAuth & Permissions", add these scopes:
+**You're in the wrong place!** Follow these steps exactly:
+
+1. Go to https://api.slack.com/apps
+2. Click on your app name
+3. On the **left sidebar**, click **"OAuth & Permissions"**
+4. You should see a section called **"Bot User OAuth Token"** with a **Copy** button
+5. If you don't see it, scroll down a bit
+6. If it still doesn't show, you need to **"Reinstall to Workspace"** button at the top
+
+**Common mistake:** People stay on the "App Credentials" page (which shows Client ID, Client Secret, etc). That's **not** where the bot token is. Go to **"OAuth & Permissions"** instead.
+
+### Slack token still not working
+1. Make sure you've added all 3 scopes:
    - `channels:history` - read channel messages
    - `users:read` - read user info
    - `groups:history` - read private channel messages
-3. Copy the "Bot User OAuth Token"
+2. Click **"Reinstall to Workspace"** button after adding scopes
+3. Copy the token (starts with `xoxb-`, not `xoxp-`)
+4. Paste in `config.yaml` exactly as shown
 
 ### Discord bot not collecting messages
 Discord.py requires intents to be enabled:
