@@ -1,0 +1,40 @@
+# Team Context Configuration
+# Fill in the channels/pages you want to index
+
+slack:
+  enabled: false
+  # Get this from https://api.slack.com/apps - create a new app
+  bot_token: ""
+  channels:
+    # - "#general"
+    # - "#engineering"
+
+discord:
+  enabled: false
+  # Get this from https://discord.com/developers/applications
+  bot_token: ""
+  servers:
+    # - server: "My Dev Server"
+    #   channels: ["general", "tech-discussion"]
+
+notion:
+  enabled: false
+  # Get this from https://www.notion.so/my-integrations
+  api_key: ""
+  pages:
+    # - "Architecture Decisions"
+    # - "API Documentation"
+
+# Indexing settings
+indexing:
+  # How many days back to pull messages (Slack free tier limited to 90)
+  lookback_days: 30
+  # How often to re-index (in minutes)
+  sync_interval: 60
+
+# Relevance search settings
+search:
+  # Number of top results to return
+  top_k: 10
+  # Similarity threshold (0-1, higher = more strict)
+  similarity_threshold: 0.5
