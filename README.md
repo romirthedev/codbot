@@ -103,6 +103,21 @@ slack:
 
 **Questions?** Every single token URL is in the guide above. Just click them.
 
+### 👀 Want to See the Dashboard First?
+
+Before committing to setup, check out the demo:
+
+```bash
+python demo.py
+```
+
+Then open http://localhost:8000 to see:
+- How the dashboard looks (creamy background, clean black accents)
+- Sample search results from Slack, Discord, and Notion
+- Try searching: "authentication", "database", "api", "design"
+
+**No tokens needed. No setup. Just run and see.**
+
 ---
 
 ## Architecture
