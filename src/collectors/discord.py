@@ -3,7 +3,7 @@
 from typing import List
 
 from src.collectors.base import BaseCollector
-from src.storage import ContextStorage
+from src.storage import ContextStorage, ContextItem
 
 
 class DiscordCollector(BaseCollector):
