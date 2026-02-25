@@ -8,9 +8,29 @@ A zero-cost tool that brings context from your team's Slack, Discord, and Notion
 
 **What you need:** Just Python (which you probably have). That's it.
 
-### Copy & Paste These Commands
+### 🎯 Easiest Way: One-Click Installer
 
-Open your terminal and run these 4 commands (one at a time):
+**Step 1:** Download this file: [install.py](https://raw.githubusercontent.com/romirthedev/codbot/main/install.py)
+
+**Step 2:** Open your terminal and run:
+```bash
+python install.py
+```
+
+That's it! The script will:
+- ✓ Download everything
+- ✓ Install dependencies
+- ✓ Guide you through getting tokens
+- ✓ Set everything up
+- ✓ Start the dashboard at http://localhost:8000
+
+**This is the easiest way. No cloning, no terminal commands to memorize.**
+
+---
+
+### Alternative: Manual Setup (If You Prefer)
+
+Open your terminal and run these 4 commands one at a time:
 
 ```bash
 # 1. Download the project
@@ -25,7 +45,7 @@ pip install -r requirements.txt
 python setup.py
 ```
 
-That's it! Then open http://localhost:8000 in your browser.
+Then open http://localhost:8000 in your browser.
 
 ### Getting Your Tokens (Copy & Paste URLs)
 
