@@ -39,7 +39,7 @@ class DemoHandler(BaseHTTPRequestHandler):
 
         body {
             font-family: 'Comic Sans MS', 'Courier New', monospace;
-            background: #FFD700;
+            background: #F5E6D3;
             min-height: 100vh;
             padding: 20px;
         }
@@ -47,18 +47,18 @@ class DemoHandler(BaseHTTPRequestHandler):
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            background: #FFE66D;
-            border: 8px solid #2c2c2c;
-            box-shadow: 12px 12px 0px #2c2c2c;
+            background: #F9EFE3;
+            border: 8px solid #1a1a1a;
+            box-shadow: 12px 12px 0px #1a1a1a;
             overflow: hidden;
         }
 
         .header {
-            background: #FF6B6B;
-            color: #fff;
+            background: #E8D4C0;
+            color: #1a1a1a;
             padding: 40px 30px;
             text-align: center;
-            border-bottom: 8px solid #2c2c2c;
+            border-bottom: 8px solid #1a1a1a;
             position: relative;
         }
 
@@ -70,7 +70,7 @@ class DemoHandler(BaseHTTPRequestHandler):
             right: 0;
             bottom: 0;
             background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px);
+                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px);
             pointer-events: none;
         }
 
@@ -78,9 +78,10 @@ class DemoHandler(BaseHTTPRequestHandler):
             font-size: 48px;
             margin-bottom: 10px;
             font-weight: 900;
-            text-shadow: 3px 3px 0px #2c2c2c;
+            text-shadow: 3px 3px 0px #1a1a1a;
             position: relative;
             z-index: 1;
+            color: #1a1a1a;
         }
 
         .header p {
@@ -89,28 +90,29 @@ class DemoHandler(BaseHTTPRequestHandler):
             margin-bottom: 20px;
             position: relative;
             z-index: 1;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+            color: #1a1a1a;
         }
 
         .demo-badge {
             display: inline-block;
-            background: #4ECDC4;
-            color: #2c2c2c;
+            background: #D4A574;
+            color: #1a1a1a;
             padding: 10px 20px;
-            border: 4px solid #2c2c2c;
+            border: 4px solid #1a1a1a;
             font-weight: 900;
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 2px;
             transform: rotate(-3deg);
-            box-shadow: 4px 4px 0px #2c2c2c;
+            box-shadow: 4px 4px 0px #1a1a1a;
             position: relative;
             z-index: 1;
         }
 
         .content {
             padding: 30px;
-            background: #FFE66D;
+            background: #F9EFE3;
         }
 
         .section {
@@ -120,13 +122,13 @@ class DemoHandler(BaseHTTPRequestHandler):
         .section-title {
             font-size: 24px;
             font-weight: 900;
-            color: #2c2c2c;
+            color: #fff;
             margin-bottom: 20px;
             padding: 15px 20px;
-            background: #4ECDC4;
-            border: 4px solid #2c2c2c;
+            background: #1a1a1a;
+            border: 4px solid #1a1a1a;
             transform: rotate(-2deg);
-            box-shadow: 6px 6px 0px #2c2c2c;
+            box-shadow: 6px 6px 0px #1a1a1a;
             display: inline-block;
         }
 
@@ -139,10 +141,10 @@ class DemoHandler(BaseHTTPRequestHandler):
 
         .stat-card {
             background: #fff;
-            border: 6px solid #2c2c2c;
+            border: 6px solid #1a1a1a;
             padding: 25px;
             text-align: center;
-            box-shadow: 8px 8px 0px #2c2c2c;
+            box-shadow: 8px 8px 0px #1a1a1a;
             transform: rotate(1deg);
             transition: all 0.1s;
             cursor: pointer;
@@ -150,7 +152,7 @@ class DemoHandler(BaseHTTPRequestHandler):
 
         .stat-card:hover {
             transform: rotate(-1deg) scale(1.05);
-            box-shadow: 10px 10px 0px #2c2c2c;
+            box-shadow: 10px 10px 0px #1a1a1a;
         }
 
         .stat-card:nth-child(2) {
@@ -168,13 +170,13 @@ class DemoHandler(BaseHTTPRequestHandler):
         .stat-value {
             font-size: 54px;
             font-weight: 900;
-            color: #FF6B6B;
+            color: #D4A574;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 0px #2c2c2c;
+            text-shadow: 2px 2px 0px #1a1a1a;
         }
 
         .stat-label {
-            color: #2c2c2c;
+            color: #1a1a1a;
             font-size: 14px;
             font-weight: 700;
             text-transform: uppercase;
@@ -188,15 +190,15 @@ class DemoHandler(BaseHTTPRequestHandler):
         }
 
         button {
-            background: #FF6B6B;
-            color: #fff;
-            border: 4px solid #2c2c2c;
+            background: #1a1a1a;
+            color: #F9EFE3;
+            border: 4px solid #1a1a1a;
             padding: 14px 28px;
             font-size: 14px;
             font-weight: 900;
             font-family: 'Comic Sans MS', monospace;
             cursor: pointer;
-            box-shadow: 6px 6px 0px #2c2c2c;
+            box-shadow: 6px 6px 0px #1a1a1a;
             transform: rotate(-1deg);
             transition: all 0.1s;
             text-transform: uppercase;
@@ -205,12 +207,12 @@ class DemoHandler(BaseHTTPRequestHandler):
 
         button:hover {
             transform: rotate(-1deg) translateY(-3px);
-            box-shadow: 8px 8px 0px #2c2c2c;
-            background: #FF5252;
+            box-shadow: 8px 8px 0px #1a1a1a;
+            background: #0d0d0d;
         }
 
         button:active {
-            box-shadow: 2px 2px 0px #2c2c2c;
+            box-shadow: 2px 2px 0px #1a1a1a;
             transform: rotate(-1deg) translateY(2px);
         }
 
@@ -229,28 +231,28 @@ class DemoHandler(BaseHTTPRequestHandler):
         input[type="text"] {
             flex: 1;
             padding: 14px 18px;
-            border: 4px solid #2c2c2c;
+            border: 4px solid #1a1a1a;
             font-size: 14px;
             background: #fff;
             font-family: 'Comic Sans MS', monospace;
             font-weight: 600;
-            box-shadow: 4px 4px 0px #2c2c2c;
+            box-shadow: 4px 4px 0px #1a1a1a;
         }
 
         input[type="text"]:focus {
             outline: none;
-            box-shadow: 6px 6px 0px #2c2c2c;
-            background: #FFFACD;
+            box-shadow: 6px 6px 0px #1a1a1a;
+            background: #F9EFE3;
         }
 
         .results {
             background: #fff;
-            border: 6px solid #2c2c2c;
+            border: 6px solid #1a1a1a;
             padding: 20px;
             max-height: 500px;
             overflow-y: auto;
             display: none;
-            box-shadow: 8px 8px 0px #2c2c2c;
+            box-shadow: 8px 8px 0px #1a1a1a;
         }
 
         .results.active {
@@ -258,22 +260,22 @@ class DemoHandler(BaseHTTPRequestHandler):
         }
 
         .result-item {
-            background: #F0E68C;
+            background: #F5E6D3;
             padding: 18px;
             margin-bottom: 15px;
-            border: 4px solid #2c2c2c;
-            box-shadow: 4px 4px 0px #2c2c2c;
+            border: 4px solid #1a1a1a;
+            box-shadow: 4px 4px 0px #1a1a1a;
             transform: rotate(-1deg);
             transition: all 0.1s;
         }
 
         .result-item:hover {
             transform: rotate(1deg) scale(1.02);
-            box-shadow: 6px 6px 0px #2c2c2c;
+            box-shadow: 6px 6px 0px #1a1a1a;
         }
 
         .result-item:nth-child(even) {
-            background: #E6E6FA;
+            background: #E8D4C0;
             transform: rotate(1deg);
         }
 
@@ -287,22 +289,22 @@ class DemoHandler(BaseHTTPRequestHandler):
 
         .result-source {
             display: inline-block;
-            background: #4ECDC4;
-            color: #2c2c2c;
+            background: #D4A574;
+            color: #1a1a1a;
             padding: 6px 14px;
-            border: 3px solid #2c2c2c;
+            border: 3px solid #1a1a1a;
             font-size: 11px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 10px;
-            box-shadow: 3px 3px 0px #2c2c2c;
+            box-shadow: 3px 3px 0px #1a1a1a;
             transform: rotate(-2deg);
         }
 
         .result-title {
             font-weight: 900;
-            color: #2c2c2c;
+            color: #1a1a1a;
             margin-bottom: 8px;
             font-size: 15px;
             text-transform: uppercase;
@@ -325,51 +327,51 @@ class DemoHandler(BaseHTTPRequestHandler):
         .status {
             padding: 16px 20px;
             margin-bottom: 15px;
-            border: 4px solid #2c2c2c;
-            box-shadow: 6px 6px 0px #2c2c2c;
+            border: 4px solid #1a1a1a;
+            box-shadow: 6px 6px 0px #1a1a1a;
             font-weight: 700;
         }
 
         .status.demo {
-            background: #FFD700;
-            color: #2c2c2c;
+            background: #F5E6D3;
+            color: #1a1a1a;
         }
 
         .demo-notice {
-            background: #4ECDC4;
-            border: 6px solid #2c2c2c;
+            background: #E8D4C0;
+            border: 6px solid #1a1a1a;
             padding: 25px;
             margin-bottom: 30px;
-            color: #2c2c2c;
-            box-shadow: 8px 8px 0px #2c2c2c;
+            color: #1a1a1a;
+            box-shadow: 8px 8px 0px #1a1a1a;
             font-weight: 700;
             transform: rotate(-2deg);
         }
 
         .demo-notice strong {
-            color: #FF6B6B;
+            color: #1a1a1a;
             text-transform: uppercase;
         }
 
         .demo-notice code {
             background: #fff;
             padding: 4px 8px;
-            border: 2px solid #2c2c2c;
+            border: 2px solid #1a1a1a;
             font-weight: 900;
         }
 
         .footer {
-            background: #4ECDC4;
+            background: #E8D4C0;
             padding: 30px 40px;
             text-align: center;
-            color: #2c2c2c;
+            color: #1a1a1a;
             font-size: 13px;
             font-weight: 700;
-            border-top: 8px solid #2c2c2c;
+            border-top: 8px solid #1a1a1a;
         }
 
         .footer a {
-            color: #FF6B6B;
+            color: #1a1a1a;
             text-decoration: none;
             font-weight: 900;
             text-transform: uppercase;
@@ -380,9 +382,9 @@ class DemoHandler(BaseHTTPRequestHandler):
         }
 
         code {
-            background: #FFD700;
+            background: #F5E6D3;
             padding: 2px 6px;
-            border: 2px solid #2c2c2c;
+            border: 2px solid #1a1a1a;
             font-weight: 900;
         }
     </style>
