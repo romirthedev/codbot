@@ -5,7 +5,6 @@ from typing import List, Tuple
 
 from sentence_transformers import SentenceTransformer
 import chromadb
-from chromadb.config import Settings
 
 from src.storage import ContextItem, ContextStorage
 
@@ -20,13 +19,7 @@ class RelevanceSearch:
 
         # Initialize embedding model and vector DB
         self.model = SentenceTransformer("all-MiniLM-L6-v2")
-        self.client = chromadb.Client(
-            Settings(
-                chroma_db_impl="duckdb+parquet",
-                persist_directory=str(self.db_path),
-                anonymized_telemetry=False,
-            )
-        )
+        self.client = chromadb.PersistentClient(path=str(self.db_path))
         self.collection = self.client.get_or_create_collection(
             name="team_context",
             metadata={"hnsw:space": "cosine"},
@@ -57,7 +50,7 @@ class RelevanceSearch:
             ids.append(item.id)
 
         # Generate embeddings and add to collection
-        embeddings = self.model.encode(documents, convert_to_list=True)
+        embeddings = self.model.encode(documents).tolist()
         self.collection.add(
             ids=ids,
             embeddings=embeddings,
@@ -90,7 +83,7 @@ class RelevanceSearch:
             List of (ContextItem, similarity_score) tuples
         """
         # Generate query embedding
-        query_embedding = self.model.encode(query, convert_to_list=True)
+        query_embedding = self.model.encode(query).tolist()
 
         # Search in chromadb
         results = self.collection.query(

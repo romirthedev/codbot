@@ -25,11 +25,21 @@ class DiscordConfig(BaseModel):
     bot_token: str = ""
     servers: List[dict] = Field(default_factory=list)
 
+    @field_validator("servers", mode="before")
+    @classmethod
+    def parse_servers(cls, v):
+        return v or []
+
 
 class NotionConfig(BaseModel):
     enabled: bool = False
     api_key: str = ""
     pages: List[str] = Field(default_factory=list)
+
+    @field_validator("pages", mode="before")
+    @classmethod
+    def parse_pages(cls, v):
+        return v or []
 
 
 class IndexingConfig(BaseModel):
