@@ -1,0 +1,179 @@
+================================================================================
+  TEAM CONTEXT COLLECTOR FOR CLAUDE CODE - GETTING STARTED
+================================================================================
+
+Quick checklist to get up and running in 15 minutes.
+
+[ ] STEP 1: Install Dependencies (2 min)
+    cd /path/to/codbot
+    python -m venv venv
+    source venv/bin/activate  # or: venv\Scripts\activate on Windows
+    pip install -r requirements.txt
+
+[ ] STEP 2: Get Your Tokens (5 min)
+
+    SLACK:
+    [ ] Go to https://api.slack.com/apps
+    [ ] Create new app > From scratch > Name: "Team Context" > Pick workspace
+    [ ] Go to OAuth & Permissions > Add Scopes:
+        - channels:history
+        - users:read
+    [ ] Reinstall app
+    [ ] Copy "Bot User OAuth Token" (starts with xoxb-)
+    [ ] Paste into config.yaml under slack.bot_token
+
+    DISCORD (optional):
+    [ ] Go to https://discord.com/developers/applications
+    [ ] New Application > Give it a name
+    [ ] Go to Bot > Add Bot
+    [ ] Under Privileged Gateway Intents, enable:
+        - Message Content Intent
+        - Server Members Intent
+    [ ] Copy token, paste into config.yaml
+
+    NOTION (optional):
+    [ ] Go to https://www.notion.so/my-integrations
+    [ ] New Integration > Name: "Team Context"
+    [ ] Copy "Internal Integration Token" (starts with secret_)
+    [ ] Paste into config.yaml
+    [ ] Share your Notion pages with the integration
+
+[ ] STEP 3: Configure (3 min)
+    [ ] Open config.yaml in a text editor
+    [ ] For SLACK:
+        - Set enabled: true
+        - Paste your bot token
+        - List your channels: ["#general", "#engineering", ...]
+
+    [ ] For DISCORD (if using):
+        - Set enabled: true
+        - Paste your bot token
+        - Add your server and channels
+
+    [ ] For NOTION (if using):
+        - Set enabled: true
+        - Paste your API key
+        - List your page names
+
+    Save the file.
+
+[ ] STEP 4: Run Initial Setup (3 min)
+    python setup.py
+
+    Wait for it to complete. You should see:
+    ✓ Configuration loaded
+    ✓ X items collected from Slack
+    ✓ X items collected from Discord
+    ✓ X items from Notion
+    ✓ Search index built
+
+[ ] STEP 5: Start Dashboard (1 min)
+    python server.py
+
+    Then open: http://localhost:8000
+
+    You should see:
+    - Dashboard with statistics
+    - Number of items indexed
+    - A search box to test
+
+[ ] STEP 6: Test Search (1 min)
+    In the dashboard:
+    [ ] Try searching for something common in your channels
+    [ ] You should see relevant messages/docs
+    [ ] If no results: Check that collection worked in Step 4
+
+[ ] STEP 7: Configure Claude Code (Not needed immediately)
+    Come back to this after verifying everything works above.
+
+    See MCP_SETUP.md for detailed instructions, but basically:
+    1. Find your Claude Code config file
+    2. Add mcp server config pointing to codbot directory
+    3. Restart Claude Code
+    4. Verify "team-context" shows up in /help mcp
+
+================================================================================
+  TROUBLESHOOTING
+================================================================================
+
+Issue: "pip: command not found"
+→ Install Python from python.org if not installed
+
+Issue: Config loads but shows warnings
+→ Read the warnings, that's fine. They'll tell you what's optional.
+
+Issue: Collection gets 0 items
+→ Check your tokens are pasted correctly (no extra spaces)
+→ Check your channels/pages are correct (exact names matter)
+→ Check channels are accessible to the bot
+
+Issue: Dashboard loads but no items shown
+→ Did collection actually work? Check console output from setup.py
+→ Restart dashboard: Stop with Ctrl+C, run "python server.py" again
+
+Issue: Search returns nothing
+→ Is the dashboard showing items? If not, go back to collection step.
+→ Try searching for common words from your channels
+→ Make sure you collected from at least one platform
+
+Issue: MCP not appearing in Claude Code
+→ Read MCP_SETUP.md carefully
+→ Check config syntax is valid JSON
+→ Use absolute paths, not relative paths
+→ Restart Claude Code completely
+
+================================================================================
+  NEXT STEPS
+================================================================================
+
+After getting through the checklist:
+
+1. Read README.md for:
+   - Full API reference
+   - All configuration options
+   - FAQ section
+
+2. Read QUICKSTART.md for:
+   - Understanding each step
+   - More details on token retrieval
+   - Troubleshooting tips
+
+3. Read MCP_SETUP.md for:
+   - Integrating with Claude Code
+   - How the MCP server works
+   - Advanced configuration
+
+4. Check ARCHITECTURE.md for:
+   - Understanding the system design
+   - How search works
+   - Scalability notes
+
+================================================================================
+  WHAT HAPPENS NOW
+================================================================================
+
+Once set up:
+
+1. Your team's context is indexed locally
+2. Dashboard shows stats at http://localhost:8000
+3. Claude Code can access context via MCP server
+4. When you ask Claude Code for help coding, it finds relevant:
+   - Team discussions on the topic
+   - Relevant Notion docs
+   - Past decisions about architecture
+   - Code examples from Slack threads
+
+5. Claude Code uses all that to help you code consistently with your team
+
+================================================================================
+  REMEMBER
+================================================================================
+
+✓ All data stays on your machine (nothing uploaded)
+✓ Free to use forever (no API costs)
+✓ Private and secure (you control everything)
+✓ Easy to update (just re-run setup.py when you want fresh data)
+
+Questions? See README.md or PROJECT_SUMMARY.md
+
+Let's go! Run: python setup.py
